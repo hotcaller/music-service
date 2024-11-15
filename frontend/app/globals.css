@@ -1,0 +1,270 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
+:root {
+  --font-family: "Poppins", sans-serif;
+  --second-family: "SF Pro Display", sans-serif;
+}
+
+html {
+  line-height: 111%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply text-[var(--text-color)] dark:text-[var(--text-color)] leading-default;
+}
+
+@layer components {
+  .flex-between {
+    @apply flex justify-between items-center;
+  }
+
+  .flex-center {
+    @apply flex items-center justify-center;
+  }
+}
+
+/* Основной контейнер */
+.main-container {
+  @apply flex min-h-screen ; 
+}
+
+@media (min-width: 800px) {
+  .main-container {
+    @apply flex-row pl-20;
+  }
+}
+
+.scrollable-element {
+  overflow-y: hidden; 
+  max-height: 100vh; 
+  transition: all 0.3s ease;
+}
+
+.scrollable-element:hover {
+  overflow-y: auto;
+}
+
+.scrollable-element::-webkit-scrollbar {
+  display: none; 
+}
+
+.scrollable-element {
+  scrollbar-width: none; 
+}
+
+.navigation-panel__container {
+  @apply flex flex-col w-full h-20 fixed bottom-0 bg-theme-light---bg-contrast-color justify-between border-r-[var(--color-theme)];
+}
+
+@media (min-width: 800px) {
+  .navigation-panel__container {
+    @apply w-20 h-screen fixed top-0 left-0; 
+  }
+}
+
+.navigation-panel__info {
+  display: none; 
+}
+
+@media (min-width: 800px) {
+  .navigation-panel__info {
+    @apply flex flex-col items-center mt-5 mb-5 gap-4;
+  }
+}
+
+.navigation-panel__activity {
+  @apply flex flex-row justify-center gap-5 w-full my-auto;
+}
+
+@media (min-width: 800px) {
+  .navigation-panel__activity {
+    @apply flex-col items-center gap-5 justify-around;
+  }
+}
+
+.menu_button {
+  @apply bg-[var(--color-theme)] w-10 h-10;
+}
+
+.menu_button-active {
+  @apply bg-primary-green w-14 h-14 shadow-sm text-white;
+}
+
+.menu_button-icon {
+  @apply text-primary-green;
+}
+
+
+@media (max-width: 800px) {
+  .menu_button-active {
+    @apply bg-[var(--color-theme)] w-10 h-10;
+  }
+
+  .menu_button {
+    @apply bg-[var(--color-theme)] w-10 h-10;
+  }
+
+ 
+  .menu_button-icon__active {
+    @apply text-primary-green;
+  }
+}
+
+.discover-tab__container {
+  @apply flex flex-col bg-[var(--bg-color)] w-1/4 py-4 px-6 pr-9;
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 1600px) {
+  .discover-tab__container {
+    @apply pr-6;
+  }
+}
+
+@media (max-width: 1440px) {
+  .discover-tab__container { 
+    @apply hidden;
+  }
+}
+
+.discover-tab__head-text {
+  @apply font-extrabold text-4xl text-[var(--text-color)] leading-tight;
+}
+
+.discover-tab__main {
+  @apply mt-10;
+}
+
+.discover-tab__top-chart {
+  @apply my-4 font-normal;
+}
+
+.discover-tab__top-chart__head {
+  @apply flex my-5 justify-between gap-3 text-center;
+}
+
+.discover-tab__top-chart__text {
+  @apply font-semibold text-3xl text-[var(--text-color)] leading-tight;
+}
+
+.discover-tab__top-chart__filter {
+  @apply my-auto;
+}
+
+.discover-tab__top-chart__filter-current {
+  @apply text-2xl font-normal leading-tight;
+}
+
+.discover-tab__top-chart__albums {
+  @apply grid grid-cols-2 gap-4;
+}
+
+.music-card__name {
+  @apply text-base  font-semibold leading-tight;
+}
+
+.music-card__group {
+  @apply text-base font-normal ;
+}
+
+.music-card__date {
+  @apply text-base font-medium ;
+}
+
+.music-card__duration {
+  @apply text-xl font-semibold leading-tight;
+}
+
+@media (max-width: 1600px) {
+  .music-card__name {
+    @apply text-xl font-semibold leading-tight;
+  }
+  
+  .music-card__group {
+    @apply text-lg font-normal text-gray-200;
+  }
+  
+  .music-card__date {
+    @apply text-lg font-medium text-gray-100;
+  }
+}
+
+.discover-tab__recommendation {
+  @apply mt-12;
+}
+
+.discover-tab__top-chart__little-albums {
+  @apply mt-4 gap-2 w-full;
+}
+
+.music-card__container {
+  @apply flex gap-4 mt-3 w-full;
+}
+
+.music-card__left {
+  @apply flex justify-start gap-2;
+}
+
+.music-card__information {
+  @apply flex justify-between w-full mr-2;
+}
+
+.music-card__title {
+  @apply flex flex-col justify-center;
+}
+
+.music-card__additional_information {
+  @apply flex flex-col gap-1;
+}
+
+.settings__dark-theme {
+  @apply w-full text-lg font-bold flex mb-5 text-center items-center gap-2;
+}
+
+.settings__language {
+  @apply w-full flex flex-col text-lg font-bold mb-2 text-start gap-3;
+}
+
+
+
+.nowplaying {
+  @apply w-1/2 bg-theme-light---bg-contrast-color ;
+}
+
+.nowplaying__container {
+  @apply h-full flex mx-auto flex-col w-2/3 py-4 px-6 pr-9 items-center;
+}
+
+
+.nowplaying__head-title {
+  @apply text-center font-bold text-2xl;
+}
+
+.nowplaying__main {
+  @apply flex flex-col gap-1 my-16;
+}
+
+.song__controlers {
+  @apply flex flex-col;
+}
+
+.song_information {
+  @apply flex justify-between;
+}
+
+.song__head {
+  @apply flex flex-col gap-1 items-center;
+}
+
+.song__head-name {
+  @apply font-semibold text-2xl leading-tight;
+}
+
+.song__head-artist {
+  @apply font-normal text-2xl leading-tight;
+}
